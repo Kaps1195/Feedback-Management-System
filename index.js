@@ -1,5 +1,12 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+require('./models/user');
 require('./services/passport');
+
+mongoose.connect(keys.mongoURI, {useNewUrlParser: true})
+.then(() => {console.log('Connected to MongoDB')})
+.catch(err => {console.log('Error, Something went wrong =>',err)});
 
 const app = express();
 
