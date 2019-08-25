@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 import { fetchSurveys } from '../../actions';
 
 class SurveyList extends Component {
@@ -8,7 +8,7 @@ class SurveyList extends Component {
     }
     
     renderSurveys() {
-        return this.props.surveys.reverse().map(survey => {
+        return this.props.surveys.reverse().map(survey => {   
             return (
                 <div>
                     <div className="card darken-1" key={survey._id}>
@@ -32,9 +32,11 @@ class SurveyList extends Component {
     }
 
     render() {
-        <div>
-            {this.renderSurveys()}
-        </div>
+        return (
+            <div>
+                {this.renderSurveys()}
+            </div>
+        );
     }
 }
 
